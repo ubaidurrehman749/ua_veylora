@@ -1,0 +1,152 @@
+/* Theme tokens with fallbacks. */
+.fact-panel {
+  --fp-text: var(--panel-text, #eef2fb);
+  --fp-muted: var(--panel-muted, #a9b6d3);
+  --fp-line: var(--panel-line, rgba(160, 180, 230, 0.16));
+  --fp-tile: rgba(255, 255, 255, 0.04);
+  --fp-accent: var(--accent, #8ab4ff);
+  --fp-focus: var(--focus-ring, #ffd166);
+  --fp-font: var(--font-body, 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif);
+  --fp-display: var(--font-display, 'Newsreader', 'Iowan Old Style', Georgia, serif);
+
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--fp-text);
+  font-family: var(--fp-font);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: 24px;
+  border: 1px solid var(--fp-line);
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(120, 160, 210, 0.08), transparent 55%),
+    linear-gradient(180deg, rgba(20, 28, 54, 0.92), rgba(9, 13, 28, 0.96));
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 24px 60px -20px rgba(0, 0, 0, 0.7);
+}
+
+.fact-panel__title { margin: 0 0 1.25rem; display: grid; gap: 0.25rem; }
+.fact-panel__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fp-accent);
+}
+.fact-panel__name {
+  font-family: var(--fp-display);
+  font-size: clamp(1.6rem, 4vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.fact-panel__dev-note {
+  margin: 0 0 1rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: #ffd9a8;
+  border: 1px dashed rgba(255, 194, 122, 0.55);
+  border-radius: 10px;
+  background: rgba(255, 194, 122, 0.06);
+}
+
+.fact-panel__list {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.fact-panel__row { margin: 0; min-width: 0; }
+.fact-panel__row dt {
+  margin-bottom: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fp-muted);
+}
+.fact-panel__row dd { margin: 0; line-height: 1.55; }
+
+.fact-panel__row--tile {
+  padding: 0.9rem 1rem;
+  border-radius: 16px;
+  border: 1px solid var(--fp-line);
+  background: var(--fp-tile);
+  font-weight: 500;
+}
+.fact-panel__row--wide { grid-column: 1 / -1; }
+.fact-panel__row--lead dd { font-size: 1.0625rem; color: #dfe6f7; max-width: 62ch; }
+
+.fact-panel__payload { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.fact-panel__payload li {
+  padding: 0.3rem 0.75rem;
+  font-size: 0.875rem;
+  border-radius: 999px;
+  border: 1px solid var(--fp-line);
+  background: var(--fp-tile);
+}
+
+.fact-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 700;
+  padding: 0.2rem 0.7rem;
+  border: 1.5px solid currentColor;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.fact-status--inactive { color: #b9c6dc; border-style: solid; }
+.fact-status--silent { color: #ffc983; border-style: dashed; }
+.fact-status--operating { color: #86e8ab; border-style: dotted; }
+
+.fact-panel__checked { display: block; margin-top: 0.5rem; color: var(--fp-muted); font-size: 0.8125rem; font-weight: 400; }
+
+.fact-panel__sources {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--fp-line);
+}
+.fact-panel__sources-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fp-muted);
+}
+.fact-panel__sources ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.25rem; }
+.fact-panel__sources li { color: var(--fp-muted); font-size: 0.9rem; }
+.fact-panel__sources a {
+  color: var(--fp-text);
+  text-decoration: underline;
+  text-decoration-color: rgba(138, 180, 255, 0.55);
+  text-underline-offset: 3px;
+  border-radius: 4px;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+}
+.fact-panel__sources a:hover { color: #fff; text-decoration-color: var(--fp-accent); }
+.fact-panel__sources a:focus-visible { outline: 3px solid var(--fp-focus); outline-offset: 3px; }
+
+.fact-panel__sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 720px) {
+  .fact-panel__list { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fact-panel * { transition: none !important; }
+}
+
+@media (forced-colors: active) {
+  .fact-panel, .fact-panel__row--tile, .fact-panel__payload li, .fact-status { border-color: CanvasText; }
+}
