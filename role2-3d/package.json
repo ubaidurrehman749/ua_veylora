@@ -1,0 +1,18 @@
+{
+  "name": "role2-3d-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "make-placeholders": "node scripts/make-placeholder-models.mjs",
+    "optimize": "node scripts/optimize-models.mjs",
+    "check-sizes": "node scripts/check-sizes.mjs"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.5.1",
+    "@gltf-transform/extensions": "^4.5.1",
+    "@gltf-transform/functions": "^4.5.1",
+    "draco3dgltf": "^1.5.9",
+    "meshoptimizer": "^0.22.0",
+    "sharp": "^0.35.5"
+  }
+}
