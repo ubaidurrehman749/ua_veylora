@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Illustration of the Ingenuity helicopter hovering above the surface of Mars">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1218"/><stop offset="0.7" stop-color="#9a4a2a"/><stop offset="1" stop-color="#e0885a"/></linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a3a1f"/><stop offset="1" stop-color="#3b140a"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#sky)"/>
+  <path d="M0 440 Q200 410 400 435 T800 425 L800 600 L0 600Z" fill="url(#ground)"/>
+  <ellipse cx="400" cy="500" rx="130" ry="16" fill="#000" opacity="0.3"/>
+  <!-- rotors (blurred discs suggest spinning) -->
+  <ellipse cx="400" cy="205" rx="260" ry="12" fill="#2b2b30" opacity="0.35"/>
+  <ellipse cx="400" cy="235" rx="260" ry="12" fill="#2b2b30" opacity="0.5"/>
+  <rect x="150" y="201" width="500" height="5" rx="2" fill="#2b2b30"/>
+  <rect x="150" y="232" width="500" height="5" rx="2" fill="#2b2b30"/>
+  <!-- solar panel + mast -->
+  <rect x="330" y="170" width="140" height="10" rx="2" fill="#1f2a44" stroke="#4a5c8a" stroke-width="2"/>
+  <rect x="396" y="180" width="8" height="70" fill="#cfcabf"/>
+  <!-- body -->
+  <rect x="352" y="250" width="96" height="84" rx="10" fill="#d9d6cf" stroke="#8a867c" stroke-width="3"/>
+  <circle cx="400" cy="300" r="9" fill="#2b2b30"/><circle cx="400" cy="300" r="4" fill="#8fc7ff"/>
+  <!-- legs -->
+  <g stroke="#cfcabf" stroke-width="7" stroke-linecap="round"><path d="M360 330 L320 430"/><path d="M440 330 L480 430"/><path d="M372 334 L384 440"/><path d="M428 334 L416 440"/></g>
+</svg>

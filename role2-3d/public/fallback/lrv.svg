@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Illustration of the Apollo Lunar Roving Vehicle on the Moon">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05050a"/><stop offset="1" stop-color="#1a1822"/></linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9c9890"/><stop offset="1" stop-color="#3d3b38"/></linearGradient>
+    <radialGradient id="earth" cx="35%" cy="35%" r="70%"><stop offset="0" stop-color="#8fc7ff"/><stop offset="0.6" stop-color="#2f62b5"/><stop offset="1" stop-color="#0d1f45"/></radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#sky)"/>
+  <g fill="#fff" opacity="0.8"><circle cx="80" cy="80" r="1.6"/><circle cx="210" cy="50" r="1.2"/><circle cx="420" cy="100" r="1.4"/><circle cx="560" cy="40" r="1.2"/><circle cx="700" cy="170" r="1.6"/><circle cx="330" cy="150" r="1"/></g>
+  <circle cx="620" cy="120" r="46" fill="url(#earth)"/>
+  <path d="M0 410 Q220 380 420 405 T800 395 L800 600 L0 600Z" fill="url(#ground)"/>
+  <ellipse cx="400" cy="492" rx="260" ry="20" fill="#000" opacity="0.4"/>
+  <!-- wheels -->
+  <g fill="#2a2a2e" stroke="#0e0d10" stroke-width="3"><circle cx="255" cy="462" r="40"/><circle cx="560" cy="462" r="40"/></g>
+  <g fill="none" stroke="#6a6a72" stroke-width="2"><circle cx="255" cy="462" r="26"/><circle cx="560" cy="462" r="26"/></g>
+  <g fill="#6a6a72"><circle cx="255" cy="462" r="8"/><circle cx="560" cy="462" r="8"/></g>
+  <!-- frame -->
+  <rect x="240" y="410" width="340" height="16" rx="4" fill="#b9b6ae" stroke="#6f6c66" stroke-width="2"/>
+  <path d="M255 426 L300 410 M560 426 L520 410" stroke="#b9b6ae" stroke-width="6"/>
+  <!-- seats -->
+  <rect x="300" y="360" width="62" height="52" rx="8" fill="#d8d2c2" stroke="#8a8474" stroke-width="2"/>
+  <rect x="376" y="360" width="62" height="52" rx="8" fill="#d8d2c2" stroke="#8a8474" stroke-width="2"/>
+  <rect x="470" y="388" width="70" height="24" rx="4" fill="#6f7480"/>
+  <!-- antenna -->
+  <rect x="528" y="300" width="6" height="90" fill="#c9c5bb"/>
+  <ellipse cx="531" cy="296" rx="36" ry="12" fill="#e8e4d8" stroke="#8a8474" stroke-width="2"/>
+</svg>
