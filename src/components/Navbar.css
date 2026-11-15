@@ -1,0 +1,114 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding: 14px max(20px, calc((100% - 1180px) / 2));
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.4s,
+    border-color 0.4s;
+}
+
+body.scrolled .navbar {
+  background: rgba(16, 16, 24, 0.66);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border-bottom-color: rgba(200, 210, 255, 0.12);
+}
+
+body.header-hidden .navbar {
+  transform: translateY(-110%);
+}
+
+/* Keyboard users always get the bar back when they tab into it. */
+body.header-hidden .navbar:focus-within {
+  transform: none;
+}
+
+.navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #eeeaf4;
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+
+.navbar__brand em {
+  color: #9c95a9;
+}
+
+.navbar__mark {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 30%, #f3efe6, #bdb6a5 50%, #5b5850 100%);
+  box-shadow: 0 0 14px rgba(217, 212, 199, 0.35);
+}
+
+.navbar__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar__links a {
+  color: #cfc9da;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar__links a:hover,
+.navbar__links a:focus-visible {
+  color: #e4bd83;
+}
+
+.navbar__star {
+  color: #e4bd83;
+}
+
+.navbar__count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  margin-left: 6px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: #e4bd83;
+  color: #17130a;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    padding: 12px 14px;
+  }
+
+  .navbar__links {
+    gap: 4px 14px;
+  }
+}
+
+@media print {
+  .navbar {
+    display: none;
+  }
+}

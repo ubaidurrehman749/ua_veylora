@@ -1,0 +1,379 @@
+[
+  {
+    "id": "opportunity",
+    "name": "Opportunity Rover",
+    "location": "Mars (Meridiani Planum)",
+    "sites": [
+      {
+        "label": "Opportunity",
+        "lat": -1.95,
+        "lon": -5.53
+      }
+    ],
+    "date": "2004-01-24",
+    "goal": "Search for geological evidence of ancient liquid water and assess past Martian habitability.",
+    "modelPath": "/models/opportunity.glb",
+    "fallbackSrc": "/images/opportunity.svg",
+    "setting": "mars",
+    "alt": "The Opportunity rover: a gold-coloured body with a solar deck, a tall camera mast and six wheels.",
+    "hotspots": [
+      {
+        "id": "pancam",
+        "label": "Panoramic camera",
+        "description": "Twin cameras on the mast that took the wide pictures of Mars.",
+        "position": [
+          0,
+          0.6,
+          -0.25
+        ]
+      },
+      {
+        "id": "arm",
+        "label": "Robotic arm",
+        "description": "Holds the tools that touch and study rocks up close.",
+        "position": [
+          0.03,
+          -0.26,
+          0.92
+        ]
+      },
+      {
+        "id": "wheels",
+        "label": "Six wheels",
+        "description": "Each wheel has its own motor, and the suspension helps the rover roll over small rocks.",
+        "position": [
+          0.56,
+          -0.48,
+          -0.37
+        ]
+      }
+    ],
+    "payload": [
+      "Panoramic Camera (Pancam)",
+      "Microscopic Imager",
+      "Alpha Particle X-Ray Spectrometer (APXS)",
+      "Mössbauer Spectrometer",
+      "Miniature Thermal Emission Spectrometer (Mini-TES)"
+    ],
+    "story": "Landed on Mars in 2004 for a planned 90-day mission, Opportunity explored the Red Planet for over 15 years, traveling approximately 28 miles. It discovered hematite-rich spherules and gypsum veins, providing strong geological evidence that liquid water once existed on Mars. A planet-wide dust storm in 2018 reduced its solar power, and NASA declared the mission complete in February 2019.",
+    "status": {
+      "value": "inactive",
+      "checkedOn": "2026-11-15"
+    },
+    "verified": true,
+    "verifiedBy": "Zarnish (Content & Research Lead)",
+    "evidence": [
+      {
+        "text": "Opportunity discovered hematite-rich spherules and gypsum veins, providing geological evidence of past liquid water on Mars.",
+        "label": "confirmed",
+        "sourceId": "nasa-opportunity-jpl"
+      },
+      {
+        "text": "Meridiani Planum experienced aqueous environmental conditions that may have been suitable for ancient microbial life.",
+        "label": "interpretation",
+        "sourceId": "nasa-opportunity-jpl"
+      },
+      {
+        "text": "Whether any ancient Martian watery environment actually harbored microscopic life or preserved organic biosignatures remains unknown.",
+        "label": "unknown",
+        "sourceId": "nasa-opportunity-jpl"
+      }
+    ],
+    "legacy": "Drove approximately 45.16 km (28.06 miles) across Mars and revealed strong geological evidence that liquid water once existed on the planet.",
+    "openQuestion": {
+      "prompt": "Opportunity revealed that Mars once had liquid water. What should a future rover search for next?",
+      "choices": [
+        "Preserved organic biosignatures of ancient microbial life",
+        "How the Martian atmosphere and surface water disappeared over time",
+        "Geological rock layers in an unexplored crater basin"
+      ],
+      "theme": "water"
+    },
+    "questionTheme": "water",
+    "sources": [
+      {
+        "id": "nasa-opportunity-jpl",
+        "title": "Mars Exploration Rovers: Spirit and Opportunity",
+        "publisher": "NASA Science",
+        "url": "https://science.nasa.gov/mission/mars-exploration-rovers-spirit-and-opportunity/"
+      },
+      {
+        "id": "nasa-opportunity-end",
+        "title": "NASA Record-Setting Opportunity Rover Mission Comes to an End",
+        "publisher": "NASA Jet Propulsion Laboratory",
+        "url": "https://www.nasa.gov/press-release/nasa-s-record-setting-opportunity-rover-mission-comes-to-an-end"
+      }
+    ],
+    "credits": [
+      {
+        "asset": "3D Model of Opportunity Rover",
+        "source": "NASA, from NASA 3D Resources; optimized for web by UA VEYLORA",
+        "license": "NASA media usage guidelines; see NASA Images and Media Usage Guidelines.",
+        "url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Mars%20Exploration%20Rover%20-%20Opportunity%20(MER-B)"
+      },
+      {
+        "asset": "Pancam and Microscopic Imagery",
+        "source": "NASA / JPL-Caltech / Cornell / ASU",
+        "license": "NASA media usage guidelines; check the individual image credit.",
+        "url": "https://mars.nasa.gov/mer/gallery/all/opportunity.html"
+      }
+    ]
+  },
+  {
+    "id": "lrv",
+    "name": "Apollo Lunar Roving Vehicle (LRV)",
+    "location": "Moon (Hadley Rille / Descartes / Taurus-Littrow)",
+    "sites": [
+      {
+        "label": "LRV · Apollo 15",
+        "lat": 26.13,
+        "lon": 3.63
+      },
+      {
+        "label": "LRV · Apollo 16",
+        "lat": -8.97,
+        "lon": 15.5
+      },
+      {
+        "label": "LRV · Apollo 17",
+        "lat": 20.19,
+        "lon": 30.77
+      }
+    ],
+    "date": "1971-07-30",
+    "goal": "Provide mobility for Apollo astronauts on the lunar surface to extend exploration range and sample collection.",
+    "modelPath": "/models/lrv.glb",
+    "fallbackSrc": "/images/lrv.svg",
+    "setting": "moon",
+    "alt": "A simplified model of the Apollo Lunar Roving Vehicle: an open frame with four wire-mesh wheels, two seats and an umbrella-shaped antenna.",
+    "hotspots": [
+      {
+        "id": "dish",
+        "label": "Umbrella antenna",
+        "description": "Pointed at Earth to send TV pictures and radio from the Moon.",
+        "position": [
+          0.62,
+          0.52,
+          0
+        ]
+      },
+      {
+        "id": "camera",
+        "label": "TV camera",
+        "description": "Sent live pictures of the astronauts at work back to Earth.",
+        "position": [
+          0.93,
+          0.02,
+          0
+        ]
+      },
+      {
+        "id": "controller",
+        "label": "Hand controller",
+        "description": "One T-shaped handle between the seats steered and drove the rover.",
+        "position": [
+          0.2,
+          0.08,
+          0
+        ]
+      },
+      {
+        "id": "wheels",
+        "label": "Wire-mesh wheels",
+        "description": "Woven wire tyres with metal treads gripped the dusty Moon ground and kept the weight down.",
+        "position": [
+          0.65,
+          -0.37,
+          0.64
+        ]
+      }
+    ],
+    "payload": [
+      "Lunar Communications Relay Unit (LCRU)",
+      "High-Gain Antenna",
+      "Ground-Controlled Television Assembly (GCTA)",
+      "Lunar Traverse Gravimeter"
+    ],
+    "story": "The Lunar Roving Vehicle was used on Apollo 15, 16, and 17, allowing astronauts to travel farther across the lunar surface and collect more geological samples. The three rovers covered approximately 90.4 km in total: 27.8 km on Apollo 15, 26.7 km on Apollo 16, and 35.9 km on Apollo 17. The vehicles remain on the Moon at their respective landing sites.",
+    "status": {
+      "value": "inactive",
+      "checkedOn": "2026-11-15"
+    },
+    "verified": true,
+    "verifiedBy": "Zarnish (Content & Research Lead)",
+    "evidence": [
+      {
+        "text": "Three Lunar Roving Vehicles were driven on the Moon during Apollo 15, Apollo 16, and Apollo 17, extending astronaut traverse range.",
+        "label": "confirmed",
+        "sourceId": "nasa-nssdc-lrv"
+      },
+      {
+        "text": "The LRV increased the amount of lunar terrain astronauts could explore and the geological samples they could collect.",
+        "label": "interpretation",
+        "sourceId": "nasa-nssdc-lrv"
+      },
+      {
+        "text": "The long-term effects of decades of lunar temperature cycles, radiation, and micrometeorite impacts on the parked vehicles remain difficult to assess directly.",
+        "label": "unknown",
+        "sourceId": "nasa-nssdc-lrv"
+      }
+    ],
+    "legacy": "Enabled extended crewed mobility on the Moon, covering approximately 90.4 km across Apollo 15, 16, and 17.",
+    "openQuestion": {
+      "prompt": "The LRVs sit silently on the Moon. What key lesson should future lunar rovers take from their design?",
+      "choices": [
+        "Dust-resistant mesh wheel designs for fine lunar regolith",
+        "High-efficiency solar and thermal battery management",
+        "Autonomous navigation for tele-operated surface scouting"
+      ],
+      "theme": "exploration"
+    },
+    "questionTheme": "exploration",
+    "sources": [
+      {
+        "id": "nasa-nssdc-lrv",
+        "title": "The Apollo Lunar Roving Vehicle",
+        "publisher": "NASA National Space Science Data Center",
+        "url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo_lrv.html"
+      },
+      {
+        "id": "nasa-apollo-15-lm",
+        "title": "Apollo 15 Lunar Module / LRV Record (NSSDC ID: 1971-063C)",
+        "publisher": "NASA National Space Science Data Center",
+        "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-063C"
+      }
+    ],
+    "credits": [
+      {
+        "asset": "Simplified 3D Model of Lunar Roving Vehicle",
+        "source": "UA VEYLORA Project Team",
+        "license": "Original project-team geometry; not a NASA model.",
+        "url": "https://github.com/sunailailyas908-debug/ABANDONED_BUT_NOT_FORGOTTEN"
+      },
+      {
+        "asset": "Apollo Surface Photography",
+        "source": "NASA Johnson Space Center",
+        "license": "NASA media usage guidelines; check the individual image credit.",
+        "url": "https://www.nasa.gov/multimedia/imagegallery/index.html"
+      }
+    ]
+  },
+  {
+    "id": "ingenuity",
+    "name": "Ingenuity Mars Helicopter",
+    "location": "Mars (Jezero Crater)",
+    "sites": [
+      {
+        "label": "Ingenuity",
+        "lat": 18.44,
+        "lon": 77.45
+      }
+    ],
+    "date": "2021-02-18",
+    "goal": "Demonstrate powered, controlled flight in the extremely thin Martian atmosphere.",
+    "modelPath": "/models/ingenuity.glb",
+    "fallbackSrc": "/images/ingenuity.svg",
+    "setting": "mars",
+    "alt": "The Ingenuity helicopter: a small box body with two rotors stacked above it, a solar panel on top and four legs.",
+    "hotspots": [
+      {
+        "id": "rotors",
+        "label": "Two rotors",
+        "description": "Spin in opposite directions, very fast, because the air on Mars is so thin.",
+        "position": [
+          0,
+          0.3,
+          0
+        ]
+      },
+      {
+        "id": "solar",
+        "label": "Solar panel",
+        "description": "Charged the battery that kept the helicopter warm at night.",
+        "position": [
+          0,
+          0.53,
+          0
+        ]
+      },
+      {
+        "id": "legs",
+        "label": "Landing legs",
+        "description": "Four legs that cushioned each landing.",
+        "position": [
+          0.35,
+          -0.48,
+          0.36
+        ]
+      }
+    ],
+    "payload": [
+      "High-Resolution Color Camera (RTE)",
+      "Black-and-White Navigation Camera (NAVCAM)",
+      "Solar Array and Lithium-Ion Battery Pack"
+    ],
+    "story": "Arriving on Mars in 2021, Ingenuity achieved the first powered flight on another world, marking a historic milestone in aviation. Originally designed for a 30-day demonstration involving five flights, it completed 72 flights over nearly three years, serving as an aerial scout for Perseverance before rotor blade damage ended flight operations in January 2024.",
+    "status": {
+      "value": "silent",
+      "checkedOn": "2026-11-15"
+    },
+    "verified": true,
+    "verifiedBy": "Zarnish (Content & Research Lead)",
+    "evidence": [
+      {
+        "text": "Ingenuity completed 72 powered flights, covering approximately 17 km and reaching altitudes of up to 24 meters in the thin Martian atmosphere.",
+        "label": "confirmed",
+        "sourceId": "nasa-ingenuity-jpl"
+      },
+      {
+        "text": "Aerial scouting can support rover exploration by identifying safer driving routes and scientifically interesting geological targets.",
+        "label": "interpretation",
+        "sourceId": "nasa-ingenuity-jpl"
+      },
+      {
+        "text": "How future multi-rotor aerial vehicles will navigate Martian dust storms and carry heavier scientific instruments.",
+        "label": "unknown",
+        "sourceId": "nasa-ingenuity-jpl"
+      }
+    ],
+    "legacy": "Demonstrated that powered aerodynamic flight is possible on Mars, establishing a new dimension of aerial planetary exploration.",
+    "openQuestion": {
+      "prompt": "Ingenuity proved aerial exploration works on Mars. What capability should next-generation Mars helicopters possess?",
+      "choices": [
+        "Mapping subsurface water ice deposits from low flight altitudes",
+        "Transporting geological rock samples across steep crater walls",
+        "Scouting unmapped Martian lava tubes and subsurface caves"
+      ],
+      "theme": "future"
+    },
+    "questionTheme": "future",
+    "sources": [
+      {
+        "id": "nasa-ingenuity-jpl",
+        "title": "Ingenuity Mars Helicopter",
+        "publisher": "NASA Science",
+        "url": "https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity-mars-helicopter/"
+      },
+      {
+        "id": "nasa-ingenuity-press",
+        "title": "NASA's Ingenuity Helicopter Logs Final Flight on Mars",
+        "publisher": "NASA Headquarters",
+        "url": "https://www.nasa.gov/press-release/after-3-years-on-mars-nasa-s-ingenuity-helicopter-mission-ends"
+      }
+    ],
+    "credits": [
+      {
+        "asset": "3D Model of Ingenuity Mars Helicopter",
+        "source": "NASA, from NASA 3D Resources; optimized for web by UA VEYLORA",
+        "license": "NASA media usage guidelines; see NASA Images and Media Usage Guidelines.",
+        "url": "https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Ingenuity%20Mars%20Helicopter"
+      },
+      {
+        "asset": "WATSON and NAVCAM Flight Images",
+        "source": "NASA/JPL-Caltech/MSSS",
+        "license": "NASA media usage guidelines; check the individual image credit.",
+        "url": "https://mars.nasa.gov/mars2020/multimedia/raw-images/"
+      }
+    ]
+  }
+]

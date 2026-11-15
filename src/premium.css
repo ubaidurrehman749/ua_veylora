@@ -1,0 +1,177 @@
+/* =====================================================================
+   PREMIUM LAYER: starfield, grain, intro loader, the Moon-to-Mars flight,
+   ticker, stats, buttons and footer.
+   Loaded after styles.css.
+   ===================================================================== */
+:root {
+  --text: #eeeaf4;
+  --muted: #a9a3b8;
+  --line: rgba(190, 200, 255, 0.14);
+  --glass-line: rgba(200, 210, 255, 0.12);
+  --moon: #d9d4c7;
+  --mars: #e2774a;
+  --accent: #e4bd83;
+  --radius: 16px;
+  --font-head: Georgia, 'Times New Roman', serif;
+  --font-body: 'IBM Plex Sans', Arial, sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::selection { background: var(--accent); color: #15110a; }
+body { overflow-x: hidden; }
+
+/* smooth scrolling (Lenis) */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+/* ---------- star background and film grain ---------- */
+.starfield { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+.grain {
+  position: fixed; inset: -50%; z-index: 90; pointer-events: none; opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 0.9s steps(6) infinite;
+}
+@keyframes grain { 0% { transform: translate(0, 0); } 20% { transform: translate(-3%, 2%); } 40% { transform: translate(2%, -3%); } 60% { transform: translate(-2%, -1%); } 80% { transform: translate(3%, 3%); } }
+@media (prefers-reduced-motion: reduce) { .grain { animation: none; } }
+
+/* ---------- intro loader ---------- */
+.preloader { position: fixed; inset: 0; z-index: 10000; background: #04040a; display: grid; place-items: center; clip-path: inset(0 0 0 0); }
+.pre-inner { width: min(680px, 86vw); }
+.pre-title { font: 400 clamp(2rem, 6vw, 4.2rem)/1.05 var(--font-head); margin: 0 0 28px; display: flex; flex-wrap: wrap; gap: 0 0.28em; color: var(--text); }
+.pre-mask { display: inline-block; overflow: hidden; padding-bottom: 0.1em; }
+.pre-word { display: inline-block; }
+.pre-mask:nth-child(2) .pre-word { color: var(--muted); font-style: italic; }
+.pre-bar { height: 2px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
+.pre-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--moon), var(--accent), var(--mars)); transform: scaleX(0); transform-origin: left; }
+.pre-num { font: 500 0.85rem var(--font-body); color: var(--muted); letter-spacing: 0.2em; margin-top: 12px; text-align: right; }
+
+/* ---------- shared bits ---------- */
+.lede { font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.7; color: #cfd0d8; max-width: 640px; margin: 0 0 1em; }
+.accent { color: var(--accent); }
+
+.btn {
+  position: relative; overflow: hidden; isolation: isolate; will-change: transform;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent); color: #17130a; border: 0; cursor: pointer;
+  padding: 12px 22px; border-radius: 999px; font-weight: 600; text-decoration: none;
+  transition: box-shadow 0.15s ease, border-color 0.2s, color 0.2s;
+}
+.btn:hover { box-shadow: 0 6px 24px rgba(228, 189, 131, 0.28); }
+.btn::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%); transform: translateX(-120%); transition: transform 0.8s var(--ease-out); }
+.btn:hover::after { transform: translateX(120%); }
+.btn.ghost { background: rgba(16, 16, 24, 0.35); color: var(--text); border: 1px solid var(--line); backdrop-filter: blur(6px); }
+.btn.ghost::after { background: linear-gradient(110deg, transparent 30%, rgba(228, 189, 131, 0.25) 50%, transparent 70%); }
+.btn.ghost:hover { border-color: var(--accent); color: var(--accent); box-shadow: none; }
+.btn-label { display: inline-flex; align-items: center; gap: 8px; }
+
+/* CSS planets: the picture shown if WebGL is unavailable */
+.planet { display: inline-block; border-radius: 50%; flex: none; position: relative; }
+.planet-moon {
+  background:
+    radial-gradient(circle at 30% 35%, rgba(0, 0, 0, 0.18) 0 8%, transparent 9%),
+    radial-gradient(circle at 62% 58%, rgba(0, 0, 0, 0.16) 0 12%, transparent 13%),
+    radial-gradient(circle at 48% 24%, rgba(0, 0, 0, 0.12) 0 5%, transparent 6%),
+    radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0.1) 0 6%, transparent 7%),
+    radial-gradient(circle at 32% 30%, #f3efe6, #bdb6a5 50%, #5b5850 100%);
+  box-shadow: inset -18px -14px 40px rgba(0, 0, 0, 0.55), 0 0 60px rgba(217, 212, 199, 0.15);
+}
+.planet-mars {
+  background:
+    radial-gradient(ellipse at 50% 8%, #f3e6dc 0 10%, transparent 11%),
+    radial-gradient(circle at 60% 55%, rgba(90, 30, 10, 0.35) 0 16%, transparent 17%),
+    radial-gradient(circle at 35% 70%, rgba(90, 30, 10, 0.25) 0 10%, transparent 11%),
+    radial-gradient(circle at 32% 30%, #f29a6b, #c25a2e 50%, #4b1a0b 100%);
+  box-shadow: inset -16px -12px 36px rgba(0, 0, 0, 0.55), 0 0 60px rgba(226, 119, 74, 0.2);
+}
+
+/* ---------- landing flight: a tall track; the stage sticks while the camera is scrubbed ---------- */
+.scene-fill { position: absolute; inset: 0; }
+.scene-fill canvas { display: block; }
+.flight { display: block; position: relative; height: 480vh; }
+.flight-stage { position: sticky; top: 0; height: 100vh; overflow: hidden; background: #020206; }
+.flight-stage::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(2, 2, 6, 0.75) 0%, rgba(2, 2, 6, 0.1) 45%, transparent 60%); }
+.flight-step {
+  position: absolute; z-index: 2; left: max(20px, calc((100% - 1180px) / 2)); top: 50%; transform: translateY(-50%);
+  max-width: min(640px, calc(100% - 40px)); visibility: hidden;
+}
+.flight-step.right { left: auto; right: max(20px, calc((100% - 1180px) / 2)); max-width: 420px; background: rgba(5, 6, 13, 0.62); backdrop-filter: blur(8px); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 26px; }
+.flight-step.center { left: 50%; transform: translate(-50%, -50%); text-align: center; }
+.flight-step h1 { margin: 16px 0 20px; font-family: var(--font-head); font-weight: 400; font-size: clamp(2.8rem, 7.5vw, 6rem); line-height: 0.98; text-shadow: 0 2px 30px rgba(0, 0, 0, 0.6); }
+.flight-step h2 { margin: 0 0 0.6em; font-family: var(--font-head); font-weight: 400; font-size: clamp(1.6rem, 3.4vw, 2.5rem); line-height: 1.12; }
+.flight-step .lede { text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8); }
+.flight-step .eyebrow { margin: 0 0 0.8em; }
+.flight-note { margin: 0; color: var(--muted); font-size: 0.86rem; }
+.step-0 { visibility: visible; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.flight-list { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 6px; }
+.flight-list li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; border-bottom: 1px solid var(--line); padding: 6px 0; }
+.flight-list button { padding: 0; border: 0; background: none; color: var(--text); font-family: var(--font-head); font-size: 1.15rem; text-align: left; transition: color 0.2s; }
+.flight-list button:hover, .flight-list button:focus-visible { color: var(--accent); }
+.flight-list span { color: var(--muted); }
+.scroll-cue { position: absolute; z-index: 2; bottom: 18px; left: 50%; transform: translateX(-50%); margin: 0; color: var(--muted); font-size: 0.8rem; letter-spacing: 0.12em; }
+.hero-fallback { position: absolute; inset: 0; }
+.hero-fallback .planet-moon { position: absolute; right: 4%; top: 12%; }
+.hero-fallback .planet-mars { position: absolute; right: 30%; bottom: 8%; }
+@media (max-width: 760px) {
+  .flight-stage::after { background: linear-gradient(0deg, rgba(2, 2, 6, 0.92) 0%, rgba(2, 2, 6, 0.5) 45%, transparent 70%); }
+  .flight-step, .flight-step.right { top: auto; bottom: 64px; transform: none; left: 16px; right: 16px; max-width: none; }
+  .flight-step.center { left: 16px; transform: none; }
+  .flight-step .lede { font-size: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flight { height: auto; }
+  .flight-stage { position: relative; height: 80vh; }
+  .flight-step { visibility: hidden; }
+  .flight-step.step-0 { visibility: visible; }
+  .scroll-cue { display: none; }
+}
+
+/* labels pinned to landing sites on the globes */
+.globe-label {
+  display: inline-block; white-space: nowrap; transform: translateY(-22px);
+  font: 600 0.8rem var(--font-body); color: #fff; background: rgba(5, 6, 13, 0.78);
+  border: 1px solid rgba(228, 189, 131, 0.5); padding: 4px 10px; border-radius: 999px; cursor: pointer;
+}
+span.globe-label { cursor: default; }
+.globe-label:hover, .globe-label.is-on { background: var(--accent); color: #17130a; }
+
+/* ---------- marquee ---------- */
+.marquee { overflow: hidden; border-block: 1px solid var(--glass-line); padding: 22px 0; background: rgba(255, 255, 255, 0.015); -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.mq-track { display: flex; width: max-content; }
+.mq-item { display: inline-flex; align-items: center; gap: 28px; padding-right: 28px; white-space: nowrap; font: 400 clamp(1.1rem, 2.4vw, 1.7rem) var(--font-head); color: var(--text); }
+.mq-item:nth-child(even) { color: transparent; -webkit-text-stroke: 1px rgba(238, 234, 244, 0.55); }
+.mq-star { color: var(--accent); font-size: 0.8em; -webkit-text-stroke: 0; }
+
+/* ---------- stats ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--glass-line); border: 1px solid var(--glass-line); border-radius: 22px; overflow: hidden; margin: 60px 0 20px; }
+.stat { background: rgba(12, 12, 22, 0.85); padding: 30px 26px; }
+.stat-num { font: 400 clamp(2.4rem, 5vw, 3.6rem)/1 var(--font-head); margin: 0 0 10px; background: linear-gradient(180deg, #fff, #c9b79c); -webkit-background-clip: text; background-clip: text; color: transparent; font-variant-numeric: tabular-nums; }
+.stat-label { color: var(--muted); margin: 0; font-size: 0.95rem; }
+
+/* ---------- footer call to action ---------- */
+.site-footer { margin-top: 120px; }
+.footer-cta { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 80px 0 60px; border-top: 1px solid var(--glass-line); }
+.footer-big { font: 400 clamp(2rem, 6vw, 4.6rem)/1.04 var(--font-head); color: var(--text); margin: 0 0 28px; }
+.footer-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.footer-meta { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 24px 0 40px; color: var(--muted); font-size: 0.85rem; line-height: 1.7; border-top: 1px solid var(--glass-line); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.footer-meta p { margin: 0; max-width: 560px; }
+
+@media print { .starfield, .grain, .preloader, .footer-cta, .marquee { display: none !important; } }
+
+/* ---------- spacing between the boxed sections ---------- */
+/* Each box (3D viewer, facts, evidence, question, timeline, answers, sources) gets clear air above it. */
+.mission-section > .mv,
+.mission-section > .fact-panel,
+.mission-section > .evidence-desk,
+.mission-section > .open-question { margin-top: 40px; }
+.mission-section > .mission-story + .mv { margin-top: 12px; }
+.anchor { margin-top: 72px; }
+.anchor > * + * { margin-top: 40px; }
+@media (max-width: 650px) {
+  .mission-section > .mv,
+  .mission-section > .fact-panel,
+  .mission-section > .evidence-desk,
+  .mission-section > .open-question,
+  .anchor > * + * { margin-top: 28px; }
+  .anchor { margin-top: 48px; }
+}

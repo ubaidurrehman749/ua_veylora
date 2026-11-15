@@ -1,0 +1,153 @@
+
+:root {
+  font-family: "IBM Plex Sans", Arial, sans-serif;
+  color: #eeeaf4;
+  background: #101018;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(ellipse at 50% 0%, #28243b 0%, transparent 55%),
+    #101018;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: #e4bd83;
+}
+
+.app {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.hero {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 90px 0;
+}
+
+.eyebrow {
+  color: #d4ad7d;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 850px;
+  margin: 20px 0;
+  font-family: Georgia, serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 0.98;
+  font-weight: 400;
+}
+
+.hero-description {
+  max-width: 620px;
+  color: #b9b3c5;
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.explore-link {
+  margin-top: 28px;
+  text-decoration: none;
+}
+
+.mission-section {
+  padding: 50px 0;
+}
+
+.section-heading h2,
+.mission-story h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+}
+
+.mission-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 30px 0;
+}
+
+.mission-tab {
+  padding: 12px 18px;
+  color: #d4cede;
+  background: #1d1b29;
+  border: 1px solid #383348;
+  border-radius: 30px;
+}
+
+.mission-tab.active {
+  color: #15121b;
+  background: #d4ad7d;
+  border-color: #d4ad7d;
+}
+
+.mission-story {
+  max-width: 850px;
+  padding: 28px 0;
+}
+
+.mission-story p:last-child {
+  color: #b9b3c5;
+  line-height: 1.9;
+}
+
+.footer {
+  margin-top: 100px;
+  padding: 40px 0;
+  border-top: 1px solid #343040;
+  color: #9c95a9;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 650px) {
+  .app {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .hero {
+    min-height: 65vh;
+  }
+
+  .mission-tabs {
+    flex-direction: column;
+  }
+
+  .mission-tab {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Keep anchored sections clear of the sticky navbar when jumped to. */
+.anchor,
+#missions,
+#top {
+  scroll-margin-top: 72px;
+}
