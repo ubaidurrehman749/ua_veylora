@@ -88,3 +88,5 @@ Opportunity and Ingenuity are NASA models from NASA 3D Resources. The Lunar Rovi
 ## Deploying
 
 Vercel / Netlify: build command `npm run build`, output folder `dist`.
+
+Hosted on Vercel from the repository root (Root Directory left empty, Framework Preset: Vite).
